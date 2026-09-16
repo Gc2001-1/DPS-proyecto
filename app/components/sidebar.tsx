@@ -41,7 +41,7 @@ export default function Sidebar() {
           </Link>
 
           <Link
-            href="#solicitudes"
+            href="#/solicitudes"
             className="flex items-center justify-between px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-xl text-sm font-medium transition-colors"
           >
             <div className="flex items-center gap-3">
