@@ -9,12 +9,30 @@ export const ROLES = [
 
 export type Rol = (typeof ROLES)[number];
 
+export type SolicitudAction =
+  | "revisar"
+  | "aprobar_vacaciones"
+  | "aprobar_permisos";
+
 export function isRol(value: unknown): value is Rol {
   return typeof value === "string" && ROLES.includes(value as Rol);
 }
 
-export function canPerformSolicitudAction(role: Rol | null, action: "revisar") {
-  return action === "revisar" && role !== null && role !== "empleado";
+export function canPerformSolicitudAction(
+  role: Rol | null,
+  action: SolicitudAction,
+) {
+  if (!role) return false;
+
+  if (action === "revisar") {
+    return role === "gerente" || role === "analista_nomina" || role === "asistente_planilla";
+  }
+
+  if (action === "aprobar_vacaciones") {
+    return role === "gerente" || role === "jefe_inmediato";
+  }
+
+  return role === "gerente" || role === "jefe_inmediato";
 }
 
 export function canAccessPath(role: Rol | null, pathname: string) {
