@@ -38,7 +38,7 @@ export default function Sidebar() {
     },
     {
       name: 'Solicitudes',
-      href: 'solicitudes',
+      href: '/solicitudes',
       badge: '12',
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
