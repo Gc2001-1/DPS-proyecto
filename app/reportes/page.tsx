@@ -123,11 +123,15 @@ export default function ReportesPage() {
           </div>
         </div>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         {/* Tarjeta dinámica corregida */}
 =======
         {/* Tarjeta dinámica  */}
 >>>>>>> Stashed changes
+=======
+        {/* Tarjeta dinámica  */}
+>>>>>>> upstream/main
         <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
           <div>
             <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">Filtro Empresa</p>

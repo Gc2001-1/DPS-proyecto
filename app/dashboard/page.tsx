@@ -24,6 +24,7 @@ export default function DashboardPage() {
   ];
 
   return (
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Dashboard - RRHH</h1>
@@ -35,6 +36,8 @@ export default function DashboardPage() {
             <p className="text-sm font-bold text-gray-700">Total Empleados</p>
             <h3 className="text-3xl font-bold text-gray-900">{empleados.length}</h3>
 =======
+=======
+>>>>>>> upstream/main
     <div className="space-y-6">
       {/* Contenido principal  */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
@@ -87,7 +90,10 @@ export default function DashboardPage() {
                 </table>
               </div>
             </div>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> upstream/main
           </div>
         </div>
 
@@ -163,6 +169,7 @@ export default function DashboardPage() {
 
         </div>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between">
           <div>
@@ -220,6 +227,8 @@ export default function DashboardPage() {
         </div>
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> upstream/main
       </div>
     </div>
   );

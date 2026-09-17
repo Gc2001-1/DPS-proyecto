@@ -240,6 +240,7 @@ export default function SolicitudesPage() {
                                             </span>
                                         </td>
 
+<<<<<<< HEAD
 <td className="px-5 py-5">
                                                 <div className="flex justify-center gap-3">
                                                     {canPerformSolicitudAction(
@@ -266,6 +267,25 @@ export default function SolicitudesPage() {
                                                             </button>
                                                         </>
                                                     )}
+=======
+                                        <td className="px-5 py-5">
+                                            <div className="flex justify-center gap-3">
+                                                <button
+                                                    onClick={() => cambiarEstado(s.id, "Aprobada")}
+                                                    className="w-7 h-7 border border-green-500 rounded-md text-green-600 flex items-center justify-center hover:bg-green-50 transition-colors"
+                                                    title="Aprobar"
+                                                >
+                                                    ✓
+                                                </button>
+
+                                                <button
+                                                    onClick={() => cambiarEstado(s.id, "Rechazada")}
+                                                    className="w-7 h-7 border border-red-500 rounded-md text-red-600 flex items-center justify-center hover:bg-red-50 transition-colors"
+                                                    title="Rechazar"
+                                                >
+                                                    ×
+                                                </button>
+>>>>>>> upstream/main
 
                                                 <button
                                                     onClick={() => verSolicitud(s)}
