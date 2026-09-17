@@ -61,7 +61,7 @@ export default function SolicitudesPage() {
     const verSolicitud = (s: any) => {
         const e = empleados(s.empleadoId);
         alert(
-            `Solicitud #${s.id}\n\nEmpleado: ${e ? `${e.nombres} ${e.apellidoPaterno} ${e.apellidoMaterno}` : s.empleadoId
+            `Solicitud #${s.id}\n\nEmpleado: ${e ? `${e.nombres} ${e.apellidoPaterno}${e.apellidoMaterno}` : s.empleadoId
             }\nTipo: ${s.tipo}\nFecha: ${s.fecha}\nEmpresa: ${s.empresa}\nEstado: ${s.estado}`
         );
     };
@@ -81,217 +81,206 @@ export default function SolicitudesPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#f3f4f6] text-[#14263d]">
-            <header className="h-[74px] bg-white border-b border-gray-300 flex items-center justify-between px-6">
-                <div className="relative w-[355px]">
-                    <span className="absolute left-4 top-2.5 text-xl">⌕</span>
-                    <input
-                        placeholder="Buscar empleado o solicitud"
-                        className="w-full h-[42px] bg-[#e5e7eb] rounded-xl pl-12 pr-4 text-sm outline-none"
-                    />
+        <div className="w-full text-[#14263d]">
+            <div className="flex justify-between items-start mb-7">
+                <div>
+                    <h1 className="text-[25px] font-bold">Gestión de solicitudes</h1>
+                    <p className="text-sm text-gray-500 mt-1">
+                        Viernes 12 de Agosto de 2026
+                    </p>
                 </div>
 
-                <div className="flex items-center h-full">
-                    <button className="w-[70px] h-full border-r border-gray-300 text-2xl text-[#f5b400]">
-                        ♧
-                    </button>
-                    <div className="flex items-center gap-4 px-5">
-                        <div className="w-10 h-10 rounded-full bg-[#dce8ff] text-[#3778e8] flex items-center justify-center font-semibold">
-                            MG
-                        </div>
-                        <span className="text-2xl">⋮</span>
-                    </div>
-                </div>
-            </header>
+                <button className="bg-[#bcd6fb] hover:bg-[#aacbf7] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
+                    Nueva Solicitud
+                </button>
+            </div>
 
-            <main className="px-8 py-7">
-                <div className="flex justify-between items-start mb-7">
-                    <div>
-                        <h1 className="text-[25px] font-bold">Gestión de solicitudes</h1>
-                        <p className="text-sm text-gray-500 mt-1">
-                            Viernes 12 de Agosto de 2026
-                        </p>
-                    </div>
-
-                    <button className="bg-[#bcd6fb] hover:bg-[#aacbf7] px-7 py-3 rounded-xl text-sm font-semibold">
-                        Nueva Solicitud
-                    </button>
-                </div>
-
-                <div className="grid grid-cols-4 gap-6 mb-7">
-                    {categorias.map(([nombre, cantidad, color]) => (
-                        <button
-                            key={nombre}
-                            onClick={() => setCategoria(String(nombre))}
-                            className={`h-[55px] rounded-xl border flex items-center justify-between px-8 font-semibold text-sm ${categoria === nombre
+            <div className="grid grid-cols-4 gap-6 mb-7">
+                {categorias.map(([nombre, cantidad, color]) => (
+                    <button
+                        key={String(nombre)}
+                        onClick={() => setCategoria(String(nombre))}
+                        className={`h-[55px] rounded-xl border flex items-center justify-between px-8 font-semibold text-sm transition-all ${
+                            categoria === nombre
                                 ? "bg-[#bcd6fb] border-[#bcd6fb]"
-                                : "bg-white border-gray-300"
-                                }`}
-                        >
-                            <span>{nombre}</span>
-                            <span
-                                className={`w-7 h-7 rounded-full flex items-center justify-center ${color === "blue"
+                                : "bg-white border-gray-300 hover:border-gray-400"
+                        }`}
+                    >
+                        <span>{nombre}</span>
+                        <span
+                            className={`w-7 h-7 rounded-full flex items-center justify-center ${
+                                color === "blue"
                                     ? "bg-[#4d8df7] text-white"
                                     : color === "orange"
-                                        ? "bg-[#fff0d8] text-[#e89100]"
-                                        : color === "red"
-                                            ? "bg-[#ffe0e0] text-[#ed5a5a]"
-                                            : "bg-[#d9f8e7] text-[#28a765]"
-                                    }`}
-                            >
-                                {cantidad}
-                            </span>
-                        </button>
-                    ))}
-                </div>
+                                    ? "bg-[#fff0d8] text-[#e89100]"
+                                    : color === "red"
+                                    ? "bg-[#ffe0e0] text-[#ed5a5a]"
+                                    : "bg-[#d9f8e7] text-[#28a765]"
+                            }`}
+                        >
+                            {cantidad}
+                        </span>
+                    </button>
+                ))}
+            </div>
 
-                <div className="flex gap-4 mb-7">
-                    <select
-                        value={empresa}
-                        onChange={(e) => setEmpresa(e.target.value)}
-                        className="h-[43px] min-w-[190px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
-                    >
-                        <option>Todas</option>
-                        <option>Didelco</option>
-                        <option>Steel</option>
-                        <option>EFL</option>
-                    </select>
+            <div className="flex gap-4 mb-7">
+                <select
+                    value={empresa}
+                    onChange={(e) => setEmpresa(e.target.value)}
+                    className="h-[43px] min-w-[190px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
+                >
+                    <option>Todas</option>
+                    <option>Didelco</option>
+                    <option>Steel</option>
+                    <option>EFL</option>
+                </select>
 
-                    <select
-                        value={estado}
-                        onChange={(e) => setEstado(e.target.value)}
-                        className="h-[43px] min-w-[205px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
-                    >
-                        <option>Todos</option>
-                        <option>Pendiente</option>
-                        <option>Aprobada</option>
-                        <option>Rechazada</option>
-                    </select>
+                <select
+                    value={estado}
+                    onChange={(e) => setEstado(e.target.value)}
+                    className="h-[43px] min-w-[205px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
+                >
+                    <option>Todos</option>
+                    <option>Pendiente</option>
+                    <option>Aprobada</option>
+                    <option>Rechazada</option>
+                </select>
 
-                    <input
-                        type="date"
-                        value={fecha}
-                        onChange={(e) => setFecha(e.target.value)}
-                        className="h-[43px] w-[180px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
-                    />
+                <input
+                    type="date"
+                    value={fecha}
+                    onChange={(e) => setFecha(e.target.value)}
+                    className="h-[43px] w-[180px] bg-white border border-gray-300 rounded-lg px-4 text-sm outline-none"
+                />
 
-                    {(categoria !== "Todos" ||
-                        estado !== "Todos" ||
-                        empresa !== "Todas" ||
-                        fecha) && (
-                            <button onClick={limpiar} className="text-blue-600 text-sm">
-                                Limpiar filtros
-                            </button>
-                        )}
-                </div>
+                {(categoria !== "Todos" ||
+                    estado !== "Todos" ||
+                    empresa !== "Todas" ||
+                    fecha) && (
+                    <button onClick={limpiar} className="text-blue-600 text-sm font-semibold hover:underline">
+                        Limpiar filtros
+                    </button>
+                )}
+            </div>
 
-                <div className="bg-white border border-gray-300 rounded-xl overflow-hidden">
-                    <div className="overflow-x-auto">
-                        <table className="w-full border-collapse">
-                            <thead>
-                                <tr className="border-b border-gray-300">
-                                    <th className="text-left px-7 py-5 text-sm">Empleado / Área</th>
-                                    <th className="text-left px-5 py-5 text-sm">Tipo</th>
-                                    <th className="text-left px-5 py-5 text-sm">Fecha / Horario</th>
-                                    <th className="text-left px-5 py-5 text-sm">Empresa</th>
-                                    <th className="text-left px-5 py-5 text-sm">Estado</th>
-                                    <th className="text-center px-5 py-5 text-sm">Acciones</th>
-                                </tr>
-                            </thead>
+            <div className="bg-white border border-gray-300 rounded-xl overflow-hidden shadow-sm">
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr className="border-b border-gray-300 bg-gray-50/50">
+                                <th className="text-left px-7 py-5 text-sm text-gray-600">Empleado / Área</th>
+                                <th className="text-left px-5 py-5 text-sm text-gray-600">Tipo</th>
+                                <th className="text-left px-5 py-5 text-sm text-gray-600">Fecha / Horario</th>
+                                <th className="text-left px-5 py-5 text-sm text-gray-600">Empresa</th>
+                                <th className="text-left px-5 py-5 text-sm text-gray-600">Estado</th>
+                                <th className="text-center px-5 py-5 text-sm text-gray-600">Acciones</th>
+                            </tr>
+                        </thead>
 
-                            <tbody>
-                                {filtradas.map((s) => {
-                                    const e = empleados(s.empleadoId);
-                                    const nombre = e
-                                        ? `${e.nombres} ${e.apellidoPaterno} ${e.apellidoMaterno}`
-                                        : s.empleadoId;
+                        <tbody>
+                            {filtradas.map((s) => {
+                                const e = empleados(s.empleadoId);
+                                const nombre = e
+                                    ? `${e.nombres} ${e.apellidoPaterno} ${e.apellidoMaterno}`
+                                    : s.empleadoId;
 
-                                    return (
-                                        <tr
-                                            key={s.id}
-                                            className="border-b border-gray-200 hover:bg-gray-50"
-                                        >
-                                            <td className="px-7 py-5">
-                                                <div className="font-semibold text-[15px]">
-                                                    {nombre}
-                                                </div>
-                                                <div className="text-xs text-gray-500 mt-1">
-                                                    {e ? `Depto ${e.departamentoId}` : "Sin departamento"}
-                                                </div>
-                                            </td>
+                                return (
+                                    <tr
+                                        key={s.id}
+                                        className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                                    >
+                                        <td className="px-7 py-5">
+                                            <div className="font-semibold text-[15px] text-gray-900">
+                                                {nombre}
+                                            </div>
+                                            <div className="text-xs text-gray-500 mt-1">
+                                                {e ? `Depto ${e.departamentoId}` : "Sin departamento"}
+                                            </div>
+                                        </td>
 
-                                            <td className="px-5 py-5 font-semibold text-[15px]">
-                                                {s.tipo}
-                                            </td>
+                                        <td className="px-5 py-5 font-semibold text-[15px] text-gray-800">
+                                            {s.tipo}
+                                        </td>
 
-                                            <td className="px-5 py-5 text-sm text-gray-500 whitespace-nowrap">
-                                                {s.fecha}
-                                            </td>
+                                        <td className="px-5 py-5 text-sm text-gray-500 whitespace-nowrap">
+                                            {s.fecha}
+                                        </td>
 
-                                            <td className="px-5 py-5 font-semibold">
-                                                {s.empresa}
-                                            </td>
+                                        <td className="px-5 py-5 font-semibold text-gray-800">
+                                            {s.empresa}
+                                        </td>
 
-                                            <td className="px-5 py-5 font-semibold">
+                                        <td className="px-5 py-5 font-semibold">
+                                            <span className={`inline-flex px-2.5 py-1 rounded-full text-xs ${
+                                                s.estado === "Aprobada"
+                                                    ? "bg-green-100 text-green-700"
+                                                    : s.estado === "Rechazada"
+                                                    ? "bg-red-100 text-red-700"
+                                                    : "bg-yellow-100 text-yellow-800"
+                                            }`}>
                                                 {s.estado === "Aprobada"
                                                     ? "Aprobado"
                                                     : s.estado === "Rechazada"
-                                                        ? "Rechazado"
-                                                        : "Pendiente"}
-                                            </td>
+                                                    ? "Rechazado"
+                                                    : "Pendiente"}
+                                            </span>
+                                        </td>
 
-                                            <td className="px-5 py-5">
-                                                <div className="flex justify-center gap-3">
-                                                    <button
-                                                        onClick={() => cambiarEstado(s.id, "Aprobada")}
-                                                        className="w-6 h-6 border border-green-500 rounded-md text-green-500 hover:bg-green-50"
-                                                    >
-                                                        ✓
-                                                    </button>
+                                        <td className="px-5 py-5">
+                                            <div className="flex justify-center gap-3">
+                                                <button
+                                                    onClick={() => cambiarEstado(s.id, "Aprobada")}
+                                                    className="w-7 h-7 border border-green-500 rounded-md text-green-600 flex items-center justify-center hover:bg-green-50 transition-colors"
+                                                    title="Aprobar"
+                                                >
+                                                    ✓
+                                                </button>
 
-                                                    <button
-                                                        onClick={() => cambiarEstado(s.id, "Rechazada")}
-                                                        className="w-6 h-6 border border-red-500 rounded-md text-red-500 hover:bg-red-50"
-                                                    >
-                                                        ×
-                                                    </button>
+                                                <button
+                                                    onClick={() => cambiarEstado(s.id, "Rechazada")}
+                                                    className="w-7 h-7 border border-red-500 rounded-md text-red-600 flex items-center justify-center hover:bg-red-50 transition-colors"
+                                                    title="Rechazar"
+                                                >
+                                                    ×
+                                                </button>
 
-                                                    <button
-                                                        onClick={() => verSolicitud(s)}
-                                                        className="w-7 h-6 text-orange-500 text-xl"
-                                                    >
-                                                        ◉
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
-
-                                {!filtradas.length && (
-                                    <tr>
-                                        <td colSpan={6} className="text-center py-12 text-gray-500">
-                                            No se encontraron solicitudes.
+                                                <button
+                                                    onClick={() => verSolicitud(s)}
+                                                    className="w-7 h-7 text-orange-500 text-lg flex items-center justify-center hover:bg-orange-50 rounded-md transition-colors"
+                                                    title="Ver detalle"
+                                                >
+                                                    ◉
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
+                                );
+                            })}
 
-                    <div className="px-7 py-4">
-                        <div className="inline-flex items-center border border-gray-500 rounded-lg overflow-hidden">
-                            <span className="px-4 py-2 text-sm border-r border-gray-300">
-                                1 - {filtradas.length} solicitudes
-                            </span>
-                            <button className="w-12 h-10 hover:bg-gray-100 text-xl">‹</button>
-                            <button className="w-12 h-10 border-l border-gray-300 hover:bg-gray-100 text-xl">
-                                ›
-                            </button>
-                        </div>
+                            {!filtradas.length && (
+                                <tr>
+                                    <td colSpan={6} className="text-center py-12 text-gray-500 text-sm">
+                                        No se encontraron solicitudes.
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="px-7 py-4 bg-gray-50/50 border-t border-gray-200">
+                    <div className="inline-flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
+                        <span className="px-4 py-2 text-sm text-gray-600 border-r border-gray-200">
+                            1 - {filtradas.length} solicitudes
+                        </span>
+                        <button className="w-10 h-9 hover:bg-gray-100 text-gray-600 flex items-center justify-center text-lg">‹</button>
+                        <button className="w-10 h-9 border-l border-gray-200 hover:bg-gray-100 text-gray-600 flex items-center justify-center text-lg">
+                            ›
+                        </button>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     );
 }
