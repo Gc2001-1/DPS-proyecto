@@ -77,8 +77,9 @@ export default function DashboardRRHH() {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Dashboard y Reportes - RRHH</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Dashboard - RRHH</h1>
 
+      {/* Tarjetas de Métricas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between">
           <div>
@@ -111,7 +112,8 @@ export default function DashboardRRHH() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      {/* Gráficas */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold text-gray-700 mb-4">Empleados por Departamento</h3>
           <div className="h-72">
@@ -148,38 +150,6 @@ export default function DashboardRRHH() {
               </PieChart>
             </ResponsiveContainer>
           </div>
-        </div>
-      </div>
-
-      <div className="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
-        <h3 className="text-lg font-semibold text-gray-700 mb-4">Reporte General de Empleados</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-gray-200 text-gray-700 text-sm">
-                <th className="py-3 px-4 font-semibold">ID</th>
-                <th className="py-3 px-4 font-semibold">Nombre Completo</th>
-                <th className="py-3 px-4 font-semibold">Departamento</th>
-                <th className="py-3 px-4 font-semibold">Contratación</th>
-                <th className="py-3 px-4 font-semibold">Estado</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm text-gray-600">
-              {empleados.map(emp => (
-                <tr key={emp.empleadoId} className="border-b border-gray-100 hover:bg-gray-50">
-                  <td className="py-3 px-4 font-medium text-gray-800">{emp.empleadoId}</td>
-                  <td className="py-3 px-4">{`${emp.nombres} ${emp.apellidoPaterno} ${emp.apellidoMaterno}`}</td>
-                  <td className="py-3 px-4">Depto {emp.departamentoId}</td>
-                  <td className="py-3 px-4">{emp.fechaContratacion}</td>
-                  <td className="py-3 px-4">
-                    <span className="px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
-                      Activo
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
