@@ -133,7 +133,10 @@ export default function SolicitudesPage() {
                     <option>Todas</option>
                     <option>Didelco</option>
                     <option>Steel</option>
+                    <option>Propultran</option>
+                    <option>DCA</option>
                     <option>EFL</option>
+                    <option>Inver Calma</option>
                 </select>
 
                 <select

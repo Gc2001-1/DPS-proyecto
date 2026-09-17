@@ -99,7 +99,7 @@ export default function Sidebar() {
         })}
       </div>
 
-      {/* 3. Perfil de Usuario Ubicado Estrictamente Abajo */}
+      {/* 3. Perfil de Usuario logeado */}
       <div className="p-4 border-t border-gray-100 m-4 bg-gray-50 rounded-2xl flex items-center justify-between">
         <div className="flex items-center gap-3 overflow-hidden">
           <div className="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-sm shrink-0">

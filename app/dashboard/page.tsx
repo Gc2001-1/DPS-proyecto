@@ -11,7 +11,7 @@ export default function DashboardPage() {
     { empleado: 'Jose Sanchez', codigo: 'EMP-0341', empresa: 'EFL', sucursal: '—', tipo: 'Vacaciones', fecha: '9 Agosto' },
     { empleado: 'Francisco Casco', codigo: 'EMP-0178', empresa: 'Copro', sucursal: '—', tipo: 'Permiso Medico', fecha: '14 Agosto' },
     { empleado: 'Ana Cruz', codigo: 'EMP-0204', empresa: 'DCA', sucursal: '—', tipo: 'Constancia Laboral', fecha: '16 Agosto' },
-    { empleado: 'Roberto Gomez', codigo: 'EMP-0286', empresa: 'Propultrab', sucursal: '—', tipo: 'Vacaciones', fecha: '18 Agosto' },
+    { empleado: 'Roberto Gomez', codigo: 'EMP-0286', empresa: 'Propultran', sucursal: '—', tipo: 'Vacaciones', fecha: '18 Agosto' },
     { empleado: 'Elena Torres', codigo: 'EMP-0312', empresa: 'Inver Calma', sucursal: '—', tipo: 'Permiso Medico', fecha: '20 Agosto' },
   ];
 
@@ -25,10 +25,10 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      {/* Contenido principal estructurado en 2 columnas */}
+      {/* Contenido principal  */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         
-        {/* Columna Izquierda: Tabla de Solicitudes (8 columnas con h-full para igualar altura) */}
+        {/* Columna Izquierda: Tabla de Solicitudes Pendientes  */}
         <div className="lg:col-span-8 flex flex-col">
           <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex-1 flex flex-col justify-between">
             <div>
@@ -79,7 +79,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Columna Derecha: Tarjetas y Gráfico (4 columnas) */}
+        {/* Columna Derecha: Tarjetas y Gráfico */}
         <div className="lg:col-span-4 space-y-6 flex flex-col">
           
           {/* 1. Tarjeta de Barras de Progreso */}
