@@ -3,8 +3,6 @@
 import React, { useMemo, useState } from "react";
 import { solicitudesMock } from "../../mocks/mocks/solicitudes";
 import { empleadosMock } from "../../mocks/empleados";
-import { useAuth } from "../components/auth-provider";
-import { canPerformSolicitudAction } from "../../services/roles";
 
 interface Solicitud {
     id: string;
@@ -22,7 +20,6 @@ const datos: Record<string, { tipo: Tipo; fecha: string; empresa: string }> = {
 };
 
 export default function SolicitudesPage() {
-    const { role } = useAuth();
     const [solicitudes, setSolicitudes] = useState<Solicitud[]>(solicitudesMock);
     const [categoria, setCategoria] = useState("Todos");
     const [estado, setEstado] = useState("Todos");
@@ -54,13 +51,6 @@ export default function SolicitudesPage() {
         empleadosMock.find((e) => e.empleadoId === id);
 
     const cambiarEstado = (id: string, nuevoEstado: string) => {
-        const solicitud = solicitudesVisuales.find((item) => item.id === id);
-        const action = solicitud?.tipo === "Vacaciones"
-            ? "aprobar_vacaciones"
-            : "aprobar_permisos";
-
-        if (!canPerformSolicitudAction(role, action)) return;
-
         setSolicitudes((lista) =>
             lista.map((s) =>
                 s.id === id ? { ...s, estado: nuevoEstado } : s
@@ -252,26 +242,19 @@ export default function SolicitudesPage() {
 
                                             <td className="px-5 py-5">
                                                 <div className="flex justify-center gap-3">
-                                                    {canPerformSolicitudAction(
-                                                        role,
-                                                        s.tipo === "Vacaciones"
-                                                            ? "aprobar_vacaciones"
-                                                            : "aprobar_permisos",
-                                                    ) && <>
-                                                        <button
-                                                            onClick={() => cambiarEstado(s.id, "Aprobada")}
-                                                            className="w-6 h-6 border border-green-500 rounded-md text-green-500 hover:bg-green-50"
-                                                        >
-                                                            ✓
-                                                        </button>
+                                                    <button
+                                                        onClick={() => cambiarEstado(s.id, "Aprobada")}
+                                                        className="w-6 h-6 border border-green-500 rounded-md text-green-500 hover:bg-green-50"
+                                                    >
+                                                        ✓
+                                                    </button>
 
-                                                        <button
-                                                            onClick={() => cambiarEstado(s.id, "Rechazada")}
-                                                            className="w-6 h-6 border border-red-500 rounded-md text-red-500 hover:bg-red-50"
-                                                        >
-                                                            ×
-                                                        </button>
-                                                    </>}
+                                                    <button
+                                                        onClick={() => cambiarEstado(s.id, "Rechazada")}
+                                                        className="w-6 h-6 border border-red-500 rounded-md text-red-500 hover:bg-red-50"
+                                                    >
+                                                        ×
+                                                    </button>
 
                                                     <button
                                                         onClick={() => verSolicitud(s)}
