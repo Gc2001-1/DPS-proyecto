@@ -27,7 +27,8 @@ export default function LoginPage() {
     setMessage("");
     setLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, correo.trim(), pin);
+      const credentials = await signInWithEmailAndPassword(auth, correo.trim(), pin);
+      await credentials.user.getIdToken(true);
       router.push("/dashboard");
     } catch (error) {
       setError(authMessage(error));

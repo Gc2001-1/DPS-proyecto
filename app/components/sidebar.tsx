@@ -15,7 +15,7 @@ export default function Sidebar() {
   const menuItems = [
     { name: 'Dashboard', href: '/dashboard', icon: '▦' },
     { name: 'Reportes', href: '/reportes', icon: '◔' },
-    { name: 'Constancias', href: '#constancias', icon: '▤' },
+    { name: 'Constancias', href: '/constancias', icon: '▤' },
     { name: 'Solicitudes', href: '/solicitudes', badge: '12', icon: '☑' },
   ];
 

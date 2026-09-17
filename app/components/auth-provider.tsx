@@ -3,7 +3,7 @@
 import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { auth } from "../../services/firebase";
-import { isRol, type Rol } from "../../services/roles";
+import { resolveRoleFromToken, type Rol } from "../../services/roles";
 
 interface AuthContextValue {
   user: User | null;
@@ -27,7 +27,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     const token = await currentUser.getIdTokenResult();
-    setRole(isRol(token.claims.rol) ? token.claims.rol : null);
+    const nextRole = resolveRoleFromToken(currentUser.uid, token.claims.rol);
+    setRole(nextRole);
+    return nextRole;
   };
 
   useEffect(() => {

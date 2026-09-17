@@ -13,7 +13,11 @@ export default function AppShell({ children }: { children: ReactNode }) {
   const { user, role, loading } = useAuth();
 
   useEffect(() => {
-    if (!loading && !user && !isLogin) router.replace("/login");
+    if (!loading && !user && !isLogin) {
+      router.replace("/login");
+      return;
+    }
+
     if (!loading && user && !isLogin && !canAccessPath(role, pathname)) {
       router.replace("/login?error=sin-permiso");
     }
