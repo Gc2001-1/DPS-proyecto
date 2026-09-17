@@ -62,7 +62,6 @@ export default function Sidebar() {
   ];
 
   return (
-<<<<<<< HEAD
 <<<<<<< Updated upstream
     <aside className="sticky top-0 flex h-screen w-64 shrink-0 flex-col justify-between border-r border-gray-200 bg-white p-4">
       <div>
@@ -101,35 +100,13 @@ export default function Sidebar() {
             <p className="text-[11px] font-medium text-gray-400">Recursos Humanos</p>
           </div>
         </div>
-=======
-    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0">
-      {/* 1. Logo / Encabezado Superior */}
-      <div className="p-6 border-b border-gray-100">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 flex items-center justify-center">
-            <img
-              src="/LogoGC.png"
-              alt="Grupo Calma Logo"
-              className="w-9 h-9 object-contain rounded-xl shadow-md"
-            />
-          </div>
-          <div>
-            <h1 className="text-sm font-extrabold text-gray-900 tracking-tight">GRUPO CALMA</h1>
-            <p className="text-[11px] font-medium text-gray-400">Recursos Humanos</p>
-          </div>
-        </div>
->>>>>>> upstream/main
       </div>
 
       {/* 2. Enlaces de Navegación del Menú Principal */}
       <div className="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto">
         <p className="px-3 text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Menú Principal</p>
         
-<<<<<<< HEAD
         {menuItems.filter((item) => item.name !== 'Solicitudes' || canManageRequests).map((item) => {
-=======
-        {menuItems.map((item) => {
->>>>>>> upstream/main
           const isActive = pathname === item.href;
           return (
             <Link
@@ -175,15 +152,12 @@ export default function Sidebar() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
         </button>
-<<<<<<< HEAD
 >>>>>>> Stashed changes
       </div>
       <div className="border-t border-gray-200 px-2 pt-4">
         <p className="truncate text-xs font-semibold text-gray-700">{user?.email ?? 'Usuario'}</p>
         <p className="mt-1 text-xs text-gray-400">{role ?? 'Sin rol'}</p>
         <button type="button" onClick={logout} className="mt-3 w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-red-600 transition hover:bg-red-50">Cerrar sesión</button>
-=======
->>>>>>> upstream/main
       </div>
     </aside>
   );
